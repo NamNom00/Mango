@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mango Phonk Player</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: url('https://i.imgur.com/3OP5a5L.jpg') no-repeat center center fixed;
+      background-size: cover;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+    }
+
+    .button-container {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+    }
+
+    button {
+      font-size: 20px;
+      padding: 15px 30px;
+      background: orange;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 0 10px #000;
+    }
+
+    .troll {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      background-image: url('https://i.imgur.com/8v3U1vz.png'); /* Troll face image */
+      background-size: contain;
+      background-repeat: no-repeat;
+      animation: float 10s infinite linear;
+    }
+
+    @keyframes float {
+      from {
+        transform: translateY(100vh);
+      }
+      to {
+        transform: translateY(-100px);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="button-container">
+    <button onclick="playMangoPhonk()">Play Mango Phonk 🍋</button>
+  </div>
+
+  <audio id="phonk-audio" src="mango-phonk.mp3"></audio>
+
+  <script>
+    function playMangoPhonk() {
+      const audio = document.getElementById('phonk-audio');
+      audio.play();
+    }
+
+    // Generate random troll faces
+    for (let i = 0; i < 10; i++) {
+      const troll = document.createElement('div');
+      troll.className = 'troll';
+      troll.style.left = Math.random() * 100 + 'vw';
+      troll.style.top = Math.random() * 100 + 'vh';
+      troll.style.animationDuration = (5 + Math.random() * 5) + 's';
+      document.body.appendChild(troll);
+    }
+  </script>
+
+</body>
+</html>
